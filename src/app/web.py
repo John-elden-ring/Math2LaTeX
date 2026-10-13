@@ -18,15 +18,16 @@ import time
 from typing import Any, Dict, List
 import uuid
 
+import base64
 import cv2
-from flask import Flask, Response, jsonify, render_template_string, request, send_file
+from flask import Flask, Response, jsonify, render_template_string, request, send_file, send_from_directory
 import numpy as np
 
 from src.pipeline.page_to_tex import PageToTexPipeline, format_latex_document
 from src.model.evaluate import check_latex_compilable
 
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__, static_folder=str(Path(__file__).resolve().parent.parent.parent / "static"))
 app.config["MAX_CONTENT_LENGTH"] = 32 * 1024 * 1024  # 32 MB max upload
 
 # Global pipeline instance (lazy loaded)
@@ -35,6 +36,15 @@ UPLOAD_CACHE_DIR = Path("static/uploads")
 CROPS_CACHE_DIR = Path("static/crops")
 UPLOAD_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 CROPS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def image_to_base64_url(img: np.ndarray) -> str:
+    """Encode an image array directly into a data:image/png;base64 URL."""
+    success, buffer = cv2.imencode(".png", img)
+    if not success:
+        return ""
+    b64 = base64.b64encode(buffer).decode("utf-8")
+    return f"data:image/png;base64,{b64}"
 
 
 def get_pipeline():
@@ -635,7 +645,7 @@ def upload_page():
 
         response_lines.append({
             "index": detail["index"],
-            "crop_url": f"/static/crops/{crop_filename}",
+            "crop_url": image_to_base64_url(crop.image),
             "latex": detail["latex"],
             "confidence": detail["confidence"],
             "compiles": detail["compiles"],
@@ -691,7 +701,7 @@ def get_sample():
 
         response_lines.append({
             "index": detail["index"],
-            "crop_url": f"/static/crops/{crop_filename}",
+            "crop_url": image_to_base64_url(crop.image),
             "latex": detail["latex"],
             "confidence": detail["confidence"],
             "compiles": detail["compiles"],
