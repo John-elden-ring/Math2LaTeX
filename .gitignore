@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Data directories (per design doc: not committed to git)
+data/raw/
+data/processed/*.png
+data/processed/*_manifest.jsonl
+data/processed/samples_preview.png
+static/uploads/
+static/crops/
+
+# Checkpoints
+checkpoints/
+
+# System and temporary outputs
+*.log
+test_notes.tex
+test_page.png

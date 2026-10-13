@@ -1,0 +1,402 @@
+[
+  {
+    "id": "000a4e8ca49c5a1c",
+    "ground_truth": "(x-y)/sqrt(2)",
+    "prediction": "\\hat{\\mu}_{n}=\\gamma_{3}",
+    "exact_match": false,
+    "edit_distance": 1.0,
+    "compilable": true
+  },
+  {
+    "id": "00db5331b85f4d47",
+    "ground_truth": "N=|V|",
+    "prediction": "\\mathbb{R}^{2}",
+    "exact_match": false,
+    "edit_distance": 1.0,
+    "compilable": true
+  },
+  {
+    "id": "01d54b93c127e89c",
+    "ground_truth": "F^{0}[f]=f",
+    "prediction": "S=P(\\sqrt{2})",
+    "exact_match": false,
+    "edit_distance": 1.0,
+    "compilable": true
+  },
+  {
+    "id": "022b4cfb5a5a3856",
+    "ground_truth": "d^{\\prime}=V_{ud}d+V_{us}s",
+    "prediction": "P(0,z)",
+    "exact_match": false,
+    "edit_distance": 1.0,
+    "compilable": true
+  },
+  {
+    "id": "02b7060b95d998eb",
+    "ground_truth": "-|I|>I_{0}",
+    "prediction": "\\sqrt{1}-1)",
+    "exact_match": false,
+    "edit_distance": 1.0,
+    "compilable": true
+  },
+  {
+    "id": "01a53ae1e3a9b918",
+    "ground_truth": "E:R^{n}\\rightarrow T_{p}M",
+    "prediction": "P\\in \\mathbb{R}^{2k\\times d}",
+    "exact_match": false,
+    "edit_distance": 0.9642857142857143,
+    "compilable": true
+  },
+  {
+    "id": "01f3445177808c3d",
+    "ground_truth": "X_{2i}\\epsilon R^{Q}",
+    "prediction": "\\frac{4}{\\sqrt{1)}-1)",
+    "exact_match": false,
+    "edit_distance": 0.9523809523809523,
+    "compilable": false
+  },
+  {
+    "id": "015e012d8baa97f3",
+    "ground_truth": "\\epsilon,\\delta,K>0",
+    "prediction": "Q(0{d})",
+    "exact_match": false,
+    "edit_distance": 0.9473684210526315,
+    "compilable": true
+  },
+  {
+    "id": "01859fc130dc9008",
+    "ground_truth": "(++++)",
+    "prediction": "(\\begin{matrix}n\\\\k&(\\begin{matrix})",
+    "exact_match": false,
+    "edit_distance": 0.9444444444444444,
+    "compilable": true
+  },
+  {
+    "id": "01e4c8973307a964",
+    "ground_truth": "|g,n\\rangle \\rightarrow|e,n-1\\rangle",
+    "prediction": "Q(0,1)",
+    "exact_match": false,
+    "edit_distance": 0.9444444444444444,
+    "compilable": true
+  },
+  {
+    "id": "028cf1f0507df703",
+    "ground_truth": "U_{i}(I)=I_{L_{i}}",
+    "prediction": "(0,1)",
+    "exact_match": false,
+    "edit_distance": 0.9444444444444444,
+    "compilable": true
+  },
+  {
+    "id": "014f7412fa06f5c0",
+    "ground_truth": "||L_{x}||_{(l^{p})^{*}}=||x||_{q}",
+    "prediction": "(\\cup A)\\cap(\\cup B)\\neq \\emptyset",
+    "exact_match": false,
+    "edit_distance": 0.9411764705882353,
+    "compilable": true
+  },
+  {
+    "id": "01917677eaf160bb",
+    "ground_truth": "Pr(s|I)\\propto1/s",
+    "prediction": "(0,k^{2})",
+    "exact_match": false,
+    "edit_distance": 0.9411764705882353,
+    "compilable": true
+  },
+  {
+    "id": "01b74db41e479782",
+    "ground_truth": "\\vec{x}\\in S",
+    "prediction": "x,y\\in \\mathbb{R}",
+    "exact_match": false,
+    "edit_distance": 0.9411764705882353,
+    "compilable": true
+  },
+  {
+    "id": "01c37bbe7ea55c56",
+    "ground_truth": "T+ATT=1+E",
+    "prediction": "\\iint_{1}-1})dS",
+    "exact_match": false,
+    "edit_distance": 0.9333333333333333,
+    "compilable": false
+  },
+  {
+    "id": "00fcddfee1ebfee6",
+    "ground_truth": "2sin(x/2)",
+    "prediction": "i_{2},\\phi_{n}",
+    "exact_match": false,
+    "edit_distance": 0.9285714285714286,
+    "compilable": true
+  },
+  {
+    "id": "0111fa141bb73b48",
+    "ground_truth": "-a^{n}u[-n-1]",
+    "prediction": "\\int_{1}(x)",
+    "exact_match": false,
+    "edit_distance": 0.9230769230769231,
+    "compilable": true
+  },
+  {
+    "id": "01e6c79f4d27bc54",
+    "ground_truth": "N(t)=N_{0}2^{-t/t_{1/2}}",
+    "prediction": "P(0,k)",
+    "exact_match": false,
+    "edit_distance": 0.9166666666666666,
+    "compilable": true
+  },
+  {
+    "id": "02aced0c052805c6",
+    "ground_truth": "1/x\\approx1-x",
+    "prediction": "\\epsilon_{2}=\\lambda^{2}",
+    "exact_match": false,
+    "edit_distance": 0.9166666666666666,
+    "compilable": true
+  },
+  {
+    "id": "02d5b5f98ac5fbd2",
+    "ground_truth": "f_{z}(x)=e^{ix^{t}Zx/2}",
+    "prediction": "C=P\\times \\frac{F_{n}{L}",
+    "exact_match": false,
+    "edit_distance": 0.9166666666666666,
+    "compilable": false
+  },
+  {
+    "id": "001083e26028da36",
+    "ground_truth": "\\nabla I=(I_{x},I_{y})",
+    "prediction": "Q(\\sqrt{2})dS",
+    "exact_match": false,
+    "edit_distance": 0.9090909090909091,
+    "compilable": true
+  },
+  {
+    "id": "00eaf4f2d3d20bb1",
+    "ground_truth": "B=ln(-b)",
+    "prediction": "Q(\\sqrt{2})",
+    "exact_match": false,
+    "edit_distance": 0.9090909090909091,
+    "compilable": true
+  },
+  {
+    "id": "032278982233fefa",
+    "ground_truth": "L_{r},L_{t},L_{L}/10",
+    "prediction": "d\\approx \\sqrt{1}d_{n}",
+    "exact_match": false,
+    "edit_distance": 0.9090909090909091,
+    "compilable": true
+  },
+  {
+    "id": "010d4fea2361f01f",
+    "ground_truth": "Inj(M_{i})<\\epsilon(n)",
+    "prediction": "\\lambda:A\\longrightarrow A^{n},k",
+    "exact_match": false,
+    "edit_distance": 0.90625,
+    "compilable": true
+  },
+  {
+    "id": "025f51bee0e59494",
+    "ground_truth": "g=g_{-1}\\oplus g_{0}\\oplus g_{1}",
+    "prediction": "lix(0,1)",
+    "exact_match": false,
+    "edit_distance": 0.90625,
+    "compilable": true
+  },
+  {
+    "id": "029decc2d74fd082",
+    "ground_truth": "abca^{-1}b^{-1}d\\sim?",
+    "prediction": "\\int_{1}=1\\cdot d_{n}",
+    "exact_match": false,
+    "edit_distance": 0.9047619047619048,
+    "compilable": true
+  },
+  {
+    "id": "00ba90fe7f71d8c6",
+    "ground_truth": "\\Omega((logn)/n^{2})",
+    "prediction": "(0,z)=Q(",
+    "exact_match": false,
+    "edit_distance": 0.9,
+    "compilable": true
+  },
+  {
+    "id": "029b5da0999d4903",
+    "ground_truth": "\\omega_{\\{(k,i),(k^{\\prime},i^{\\prime}),(k^{\\prime \\prime},i^{\\prime \\prime})\\}}",
+    "prediction": "(p)=\\sqrt{1)})",
+    "exact_match": false,
+    "edit_distance": 0.9,
+    "compilable": true
+  },
+  {
+    "id": "00692074bbc0f678",
+    "ground_truth": "t\\longrightarrow F(t,t_{0},x)",
+    "prediction": "f_{1},y\\in \\mathbb{m}",
+    "exact_match": false,
+    "edit_distance": 0.896551724137931,
+    "compilable": true
+  },
+  {
+    "id": "01ab618a2350036f",
+    "ground_truth": "f_{n}\\rightarrow \\chi_{[1,2)}",
+    "prediction": "P(\\sqrt{2})\\approx0.8",
+    "exact_match": false,
+    "edit_distance": 0.896551724137931,
+    "compilable": true
+  },
+  {
+    "id": "02de91b624143438",
+    "ground_truth": "y^{2}=x^{3}-n^{2}x",
+    "prediction": "f_{n}:S\\rightarrow \\mathbb{C}",
+    "exact_match": false,
+    "edit_distance": 0.896551724137931,
+    "compilable": true
+  },
+  {
+    "id": "013a32b84ce6252f",
+    "ground_truth": "\\{L(u,v):u,v\\in X\\}",
+    "prediction": "()\\approx0,k)",
+    "exact_match": false,
+    "edit_distance": 0.8947368421052632,
+    "compilable": true
+  },
+  {
+    "id": "0199f657babdf636",
+    "ground_truth": "\\prod_{p}p/(p-1)",
+    "prediction": "\\sqrt{1}(\\begin{m}-\\frac{m}{m}{m}{m}]}",
+    "exact_match": false,
+    "edit_distance": 0.8947368421052632,
+    "compilable": false
+  },
+  {
+    "id": "02b1dc6d4efd493a",
+    "ground_truth": "\\Omega(R)=cP(R)",
+    "prediction": "G(Y^{\\prime})dtrix)",
+    "exact_match": false,
+    "edit_distance": 0.8947368421052632,
+    "compilable": true
+  },
+  {
+    "id": "02dcdb815d18cdf1",
+    "ground_truth": "f(x_{t},t)=x_{t}e^{\\theta t}",
+    "prediction": "(0,k)",
+    "exact_match": false,
+    "edit_distance": 0.8928571428571429,
+    "compilable": true
+  },
+  {
+    "id": "00ad7566b9f1d872",
+    "ground_truth": "\\dot{x}(t)=f(x(t))",
+    "prediction": "C(0,k)",
+    "exact_match": false,
+    "edit_distance": 0.8888888888888888,
+    "compilable": true
+  },
+  {
+    "id": "0180366e774d93be",
+    "ground_truth": "\\Omega(eg)=g^{-1}\\Omega(e)g",
+    "prediction": "Q(\\sqrt{2})\\approx0.8",
+    "exact_match": false,
+    "edit_distance": 0.8888888888888888,
+    "compilable": true
+  },
+  {
+    "id": "028414d36ea98262",
+    "ground_truth": "\\Delta b/b^{2}\\approx \\Delta f/f^{2}",
+    "prediction": "f(\\hat{A}_{n}d\\mu",
+    "exact_match": false,
+    "edit_distance": 0.8888888888888888,
+    "compilable": true
+  },
+  {
+    "id": "030ea5646116a251",
+    "ground_truth": "M_{2}=P_{1}^{\\prime}|P_{2}|...",
+    "prediction": "C=P\\times \\frac{1}{\\sqrt{1}{-1})})",
+    "exact_match": false,
+    "edit_distance": 0.8823529411764706,
+    "compilable": true
+  },
+  {
+    "id": "0121d7fdad59c8ab",
+    "ground_truth": "\\Leftrightarrow|PA|^{2}=9|PB|^{2}",
+    "prediction": "l_{n}=Q_{1})",
+    "exact_match": false,
+    "edit_distance": 0.8787878787878788,
+    "compilable": true
+  },
+  {
+    "id": "02720f6a67e8bc09",
+    "ground_truth": "L_{10}=(C/P)^{p}",
+    "prediction": "f(n)=G_{1})",
+    "exact_match": false,
+    "edit_distance": 0.875,
+    "compilable": true
+  },
+  {
+    "id": "01cf085d26abe325",
+    "ground_truth": "G^{p^{k}}=\\{g^{p^{k}}|g\\in G\\}",
+    "prediction": "Q(\\sqrt{2})d\\mu",
+    "exact_match": false,
+    "edit_distance": 0.8666666666666667,
+    "compilable": true
+  },
+  {
+    "id": "024279a4b8037bae",
+    "ground_truth": "f(y)=2+2y+y^{2}",
+    "prediction": "P(0,y)",
+    "exact_match": false,
+    "edit_distance": 0.8666666666666667,
+    "compilable": true
+  },
+  {
+    "id": "0090db2a639b5c98",
+    "ground_truth": "S_{ijk}\\rightarrow S_{ij}(\\omega_{k})",
+    "prediction": "P(\\omega)=\\frac{1}{\\sqrt{n}{-1)}",
+    "exact_match": false,
+    "edit_distance": 0.8648648648648649,
+    "compilable": false
+  },
+  {
+    "id": "02c39c1be9d660b7",
+    "ground_truth": "1-4\\pi r^{3}/3V",
+    "prediction": "x,=\\frac{2}{k}{ri}{\\sqrt{2}})",
+    "exact_match": false,
+    "edit_distance": 0.8620689655172413,
+    "compilable": true
+  },
+  {
+    "id": "006badbfc63bbd21",
+    "ground_truth": "p=(p_{x},p_{y},p_{z})",
+    "prediction": "P(\\omega)=Q(\\sqrt{1})",
+    "exact_match": false,
+    "edit_distance": 0.8571428571428571,
+    "compilable": true
+  },
+  {
+    "id": "01cdd808862eab64",
+    "ground_truth": "T^{t}:=S^{1}\\times \\cdot \\cdot \\cdot \\times S^{1}",
+    "prediction": "\\sqrt{1}_{n}=\\frac{1}{i}{0",
+    "exact_match": false,
+    "edit_distance": 0.8571428571428571,
+    "compilable": false
+  },
+  {
+    "id": "0276c02c9b9222e9",
+    "ground_truth": "f^{-1}(y)=\\sqrt{y}",
+    "prediction": "(0,1)^{2}=(\\begin{mat",
+    "exact_match": false,
+    "edit_distance": 0.8571428571428571,
+    "compilable": false
+  },
+  {
+    "id": "02ace78dfc726867",
+    "ground_truth": "2sin(\\theta/2)r",
+    "prediction": "(\\cup A)=Q(\\sqrt{-1})",
+    "exact_match": false,
+    "edit_distance": 0.8571428571428571,
+    "compilable": true
+  },
+  {
+    "id": "02da6f52e30f674d",
+    "ground_truth": "2^{k}t_{0}",
+    "prediction": "O(n)=\\frac{1}{m}{m}{\\sqrt{m}",
+    "exact_match": false,
+    "edit_distance": 0.8571428571428571,
+    "compilable": false
+  }
+]

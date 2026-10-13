@@ -1,0 +1,79 @@
+# Math2LaTeX Configuration
+# All project hyperparameters, dataset paths, and settings are defined here.
+
+# --- Data Settings ---
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  real_dir: "data/real"
+  vocab_path: "data/processed/vocab.json"
+  max_samples: 50000          # Set small (e.g., 50000) for fast tests, null or 0 for full dataset
+  overfit_samples: 100        # Used specifically for the 100-sample sanity check
+  image_height: 128           # Fixed height for all equation line images
+  max_width: 1024             # Maximum allowed width before capping
+  pad_value: 255              # White background padding value (0-255)
+  stroke_width: 2.5           # Base pen stroke width
+  stroke_width_jitter: 0.5    # Random stroke width variation
+  seed: 42
+
+# --- Augmentation Settings (Active during training only) ---
+augmentation:
+  enabled: true
+  rotation_degrees: 3.0       # Subtle rotation up to 3 degrees
+  blur_prob: 0.3              # Gaussian blur probability
+  noise_prob: 0.3             # Salt-and-pepper / Gaussian noise
+  brightness_contrast_prob: 0.5
+  photo_effects:
+    enabled: true             # Enable realistic photo simulation (shadows, paper background, ink colors)
+    paper_texture_prob: 0.4
+    shadow_prob: 0.4
+    ruled_lines_prob: 0.3     # Notebook horizontal lines
+    blue_ink_prob: 0.3        # Alternate between black and blue ink
+
+# --- Tokenizer Settings ---
+tokenizer:
+  pad_token: "<pad>"
+  start_token: "<start>"
+  end_token: "<end>"
+  unk_token: "<unk>"
+  max_tokens: 256
+
+# --- Model Architecture ---
+model:
+  image_height: 128
+  model_dim: 256              # Feature dimension for encoder output and decoder
+  encoder_backbone: "resnet18"
+  decoder_layers: 4           # Transformer decoder layers
+  heads: 8                    # Multi-head attention heads
+  feedforward_dim: 1024       # Dimension of feedforward network inside decoder
+  dropout: 0.1
+  max_tokens: 256
+
+# --- Training Settings ---
+training:
+  batch_size: 32
+  lr: 0.0001                  # 1e-4
+  weight_decay: 0.01
+  warmup_epochs: 2
+  epochs: 30
+  clip_grad_norm: 1.0
+  mixed_precision: true       # Uses torch.cuda.amp (fp16) when GPU is available
+  checkpoint_dir: "checkpoints"
+  save_every_epoch: true
+  log_interval: 50            # Steps between console logging
+  num_workers: 2              # DataLoader worker processes
+
+# --- Inference Settings ---
+inference:
+  beam_size: 4
+  max_tokens: 256
+  temperature: 1.0
+
+# --- Page Pipeline Settings ---
+pipeline:
+  adaptive_thresh_block_size: 25
+  adaptive_thresh_c: 10
+  min_line_height: 20
+  min_line_gap: 15
+  horizontal_padding: 20
+  vertical_padding: 10
