@@ -155,7 +155,7 @@ def run_training(
         config=train_cfg,
         split="train",
         batch_size=batch_size,
-        num_workers=0 if device.type == "cpu" else config["training"].get("num_workers", 2),
+        num_workers=0 if device.type == "cpu" else config["training"].get("num_workers", 0),
         shuffle=True,
         max_samples=max_samples,
     )
@@ -217,10 +217,14 @@ def run_training(
         print(f"Resuming training from: {resume_path}")
         ckpt = torch.load(resume_path, map_location=device)
         model.load_state_dict(ckpt["model_state_dict"])
-        optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+        if not lr_override:
+            optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+        else:
+            for param_group in optimizer.param_groups:
+                param_group["lr"] = lr_override
         start_epoch = ckpt.get("epoch", 0) + 1
-        best_val_dist = ckpt.get("best_val_dist", float("inf"))
-        print(f"Resumed at epoch {start_epoch}")
+        best_val_dist = float("inf")  # Reset to track improvements during new run
+        print(f"Resumed at epoch {start_epoch} (lr: {lr_override or lr:.2e})")
 
     print(f"Starting training for {epochs} epochs ({len(train_loader)} batches/epoch)...")
 
@@ -260,8 +264,8 @@ def run_training(
                 torch.save(latest_ckpt, ckpt_dir / "overfit_100_model.pt")
                 break
         else:
-            # Full validation pass
-            val_metrics, _ = evaluate_model(model, val_loader, tokenizer, device, max_samples=100)
+            # Fast validation pass (25 samples)
+            val_metrics, _ = evaluate_model(model, val_loader, tokenizer, device, max_samples=25)
             val_dist = val_metrics["mean_edit_distance"]
             print(f"Validation -> Edit Dist: {val_dist:.4f} | Exact Match: {val_metrics['exact_match']:.2f}% | Compiles: {val_metrics['compile_rate']:.2f}%")
 

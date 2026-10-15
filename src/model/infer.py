@@ -9,6 +9,7 @@ Implements:
 
 import argparse
 from pathlib import Path
+import re
 from typing import Dict, List, Optional, Tuple, Union
 
 import cv2
@@ -126,6 +127,66 @@ def beam_search_decode(
     return clean_tokens, confidence
 
 
+def sanitize_latex(s: str) -> str:
+    """Auto-close dangling environments and balance unclosed braces."""
+    if not s:
+        return ""
+    s = s.strip()
+    if s.endswith("\\"):
+        s = s[:-1].strip()
+
+    # Balance and auto-close unclosed environments (e.g., \begin{matrix} -> \end{matrix})
+    stack = []
+    for m in re.finditer(r"\\(begin|end)\{([a-zA-Z*]+)\}", s):
+        cmd, env = m.group(1), m.group(2)
+        if cmd == "begin":
+            stack.append(env)
+        elif cmd == "end":
+            if stack and stack[-1] == env:
+                stack.pop()
+    while stack:
+        env = stack.pop()
+        s += f"\\end{{{env}}}"
+
+    # Strip orphan closing curly braces and balance unclosed braces
+    clean_chars = []
+    depth = 0
+    for ch in s:
+        if ch == "{":
+            depth += 1
+            clean_chars.append(ch)
+        elif ch == "}":
+            if depth > 0:
+                depth -= 1
+                clean_chars.append(ch)
+            # Skip orphan '}' when depth == 0 to prevent KaTeX fatal syntax error
+        else:
+            clean_chars.append(ch)
+    if depth > 0:
+        clean_chars.extend(["}"] * depth)
+    s = "".join(clean_chars)
+
+    # Balance \left and \right delimiters (prevent KaTeX Expected \right error)
+    num_left = len(re.findall(r"\\left(?![a-zA-Z])", s))
+    num_right = len(re.findall(r"\\right(?![a-zA-Z])", s))
+    if num_left > num_right:
+        diff = num_left - num_right
+        for _ in range(diff):
+            bare_close = [m.start() for m in re.finditer(r"(?<!\\right)\)", s)]
+            if bare_close:
+                # Promote outermost un-prefixed ')' to '\right)'
+                idx = bare_close[-1]
+                s = s[:idx] + "\\right)" + s[idx + 1:]
+            else:
+                s += "\\right."
+    elif num_right > num_left:
+        diff = num_right - num_left
+        for _ in range(diff):
+            s = re.sub(r"\\right(?=[)\]\}|.])", "", s, count=1)
+
+    return s
+
+
 class LatexPredictor:
     """End-to-end wrapper for predicting LaTeX from single image crops."""
 
@@ -208,6 +269,7 @@ class LatexPredictor:
             max_tokens=self.config["model"]["max_tokens"],
         )
         latex_str = self.tokenizer.decode(token_ids)
+        latex_str = sanitize_latex(latex_str)
         return latex_str, conf
 
 

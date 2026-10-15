@@ -5,18 +5,38 @@ __pycache__/
 *.so
 .pytest_cache/
 
-# Data directories (per design doc: not committed to git)
+# LaTeX paper and report files (excluded per user preference)
+paper/
+*.tex
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Test suites and scratch scripts (excluded per user preference)
+tests/
+scratch/
+scripts/
+
+# Data directories (only vocab.json and sample_gallery.json are committed)
 data/raw/
+data/real/
 data/processed/*.png
+data/processed/train/
+data/processed/valid/
+data/processed/test/
 data/processed/*_manifest.jsonl
 data/processed/samples_preview.png
 static/uploads/
 static/crops/
 
-# Checkpoints
+# Model Checkpoints (files > 180MB exceed GitHub 100MB limit)
 checkpoints/
 
 # System and temporary outputs
 *.log
 test_notes.tex
 test_page.png
+.gemini/

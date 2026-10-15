@@ -99,6 +99,33 @@ def check_latex_compilable(latex_str: str) -> bool:
     if lefts != rights:
         return False
 
+    # Check that \frac has two braced arguments: \frac{...}{...}
+    pos = 0
+    while True:
+        idx = cleaned.find(r"\frac", pos)
+        if idx == -1:
+            break
+        pos = idx + 5
+        first_open = cleaned.find("{", pos)
+        if first_open == -1:
+            return False
+        # find matching close brace
+        b_depth = 1
+        j = first_open + 1
+        while j < len(cleaned) and b_depth > 0:
+            if cleaned[j] == "{":
+                b_depth += 1
+            elif cleaned[j] == "}":
+                b_depth -= 1
+            j += 1
+        if b_depth != 0:
+            return False
+        # find second group
+        second_part = cleaned[j:].lstrip()
+        if not second_part.startswith("{"):
+            return False
+        pos = j
+
     # 2. If pdflatex exists on the machine, test compilation
     pdflatex_bin = shutil.which("pdflatex")
     if pdflatex_bin:

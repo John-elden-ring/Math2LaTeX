@@ -1,12 +1,24 @@
 # Math2LaTeX: Handwritten Math Notes to LaTeX
 
-An end-to-end, custom-trained deep learning system that transforms photographs of handwritten mathematical notes into clean, compilable LaTeX documents.
+An end-to-end deep learning system that transcribes smartphone photographs of handwritten mathematical notes directly into compilable LaTeX code.
 
-Built strictly according to the design specification:
-- **Trained from scratch**: No ready-made math OCR APIs or models (e.g., pix2tex, Nougat, Texify, Mathpix).
-- **Architecture**: Pretrained ResNet-18 visual feature extractor + 2D Positional Embeddings + 4-layer Transformer sequence decoder.
-- **Robust to real-world camera photos**: Realistic paper/ink/lighting augmentations and full-page segmentation pipeline.
-- **Explainable**: Simple, modular PyTorch code accompanied by clear documentation in `docs/stage_N.md`.
+**Authors:**  
+- **Adhik Puthenkattil**  
+- **Goutham Krishna PS**  
+- **Abhijith Jayan**  
+
+**Institution:**  
+*Department of Computer Science and Engineering*  
+*Indian Institute of Information Technology (IIIT) Kottayam, Kerala, India*  
+
+---
+
+## Overview
+
+- **Custom-Trained Architecture**: Deep visual ResNet-18 convolutional backbone + 2D sinusoidal spatial positional embeddings + 4-layer autoregressive Transformer sequence decoder.
+- **Robust Real-World Preprocessing**: Automatic document deskewing, local adaptive Gaussian shadow removal, and smoothed horizontal projection profile line segmentation.
+- **Syntactic Stabilization**: Automated delimiter balancing and orphan brace elimination to guarantee clean, compilable LaTeX output.
+- **Interactive Web Interface**: Live browser application featuring side-by-side handwritten stroke preview, instant KaTeX visual formula rendering, token-level confidence scoring, and 1-click `.tex` project export.
 
 ---
 
@@ -16,36 +28,36 @@ Built strictly according to the design specification:
 math2latex/
 ├── README.md
 ├── requirements.txt
+├── .gitignore
 ├── configs/
-│   └── base.yaml              # All project settings & hyperparameters
+│   └── base.yaml              # Hyperparameters & model configurations
 ├── data/
-│   ├── raw/                   # Raw downloaded InkML archives (not in git)
-│   ├── processed/             # Rasterized images & vocab.json (not in git)
-│   └── real/                  # Real phone photo samples for fine-tuning
+│   ├── processed/
+│   │   └── vocab.json         # 1024-token LaTeX vocabulary
+│   └── sample_gallery.json    # Verified benchmark sample gallery
 ├── src/
-│   ├── data/
-│   │   ├── download.py        # Fetch MathWriting & CROHME datasets
-│   │   ├── strokes_to_image.py# Render vector strokes into 128px grayscale images
-│   │   ├── tokenizer.py       # LaTeX tokenizer & vocabulary manager
-│   │   ├── dataset.py         # PyTorch Dataset, batch collator & DataLoader
-│   │   └── augment.py         # Realistic photo/ink/camera augmentations
+│   ├── app/
+│   │   ├── web.py             # Interactive Flask web application with KaTeX preview
+│   │   └── cli.py             # CLI for single-image and batch transcription
 │   ├── model/
-│   │   ├── encoder.py         # ResNet-18 feature grid + 2D positional encoding
-│   │   ├── decoder.py         # Transformer autoregressive decoder
-│   │   ├── img2latex.py       # Full sequence-to-sequence model
+│   │   ├── img2latex.py       # Full sequence-to-sequence model definition
+│   │   ├── encoder.py         # ResNet-18 visual feature grid + 2D positional encoding
+│   │   ├── decoder.py         # Autoregressive Transformer decoder
+│   │   ├── infer.py           # Beam search inference pipeline
 │   │   ├── train.py           # Training loop with warmup, fp16 & gradient clipping
-│   │   ├── evaluate.py        # Exact match, normalized edit distance & compile rate
-│   │   └── infer.py           # Single-image inference with beam search
+│   │   └── evaluate.py        # Token error rate, BLEU, and edit distance evaluation
 │   ├── pipeline/
-│   │   ├── preprocess.py      # Page straightening, shadow removal & binarization
-│   │   ├── split_lines.py     # Projection-based handwritten line segmentation
-│   │   └── page_to_tex.py     # End-to-end page photo -> complete .tex document
-│   └── app/
-│       ├── cli.py             # Command-line interface
-│       └── web.py             # Interactive web application with live LaTeX preview
-├── tests/                     # Unit tests for tokenizer, dataset, model & pipeline
-├── notebooks/                 # Analysis and visualization notebooks
-└── docs/                      # Stage-by-stage explainable notes (stage_1 to stage_10)
+│   │   ├── preprocess.py      # Deskewing, shadow removal & Sauvola binarization
+│   │   ├── split_lines.py     # Projection profile line segmentation
+│   │   └── page_to_tex.py     # End-to-end page image to .tex transcription
+│   └── data/
+│       ├── tokenizer.py       # LaTeX tokenizer and vocabulary manager
+│       ├── dataset.py         # PyTorch Dataset and batch collator
+│       ├── augment.py         # Realistic camera/ink/lighting augmentations
+│       ├── strokes_to_image.py# Vector stroke rasterizer
+│       └── download.py        # Dataset downloader
+├── notebooks/                 # Analysis and training demonstration notebooks
+└── docs/                      # Architectural stage documentation (stage_1 to stage_10)
 ```
 
 ---
@@ -54,57 +66,57 @@ math2latex/
 
 ### 1. Installation
 
+Clone the repository and install dependencies:
 ```bash
+git clone https://github.com/John-elden-ring/Math2LaTeX.git
+cd Math2LaTeX
 pip install -r requirements.txt
 ```
 
-### 2. Verify Data Pipeline & Model Sanity Checks
+### 2. Model Checkpoint Setup
 
-Run automated test suite:
-```bash
-pytest tests/ -v
+Place your trained model checkpoint at:
+```text
+checkpoints/best_model.pt
 ```
+*(Model weights can be produced via `python -m src.model.train` or downloaded from releases).*
 
-### 3. Run the Overfit Sanity Check (Stage 4)
-
-```bash
-python -m src.model.train --config configs/base.yaml --overfit
-```
-
-### 4. Convert a Page Photo via CLI (Stage 9)
-
-```bash
-python -m src.app.cli path/to/photo.jpg -o notes.tex
-```
-
-### 5. Launch the Web App (Stage 9)
+### 3. Launch the Interactive Web Application
 
 ```bash
 python -m src.app.web
 ```
-Open `http://localhost:5000` in your browser.
+Open your browser and navigate to:
+```text
+http://127.0.0.1:5000
+```
+- Upload any mobile phone photograph of handwritten math.
+- Or select from the preloaded benchmark test cases in the gallery to test live inference instantly.
+
+### 4. Transcribe via CLI
+
+Transcribe a single handwritten equation image or full notebook page:
+```bash
+python -m src.app.cli path/to/equation.png -o output.tex
+```
 
 ---
 
-## Dataset Statistics
+## Architectural Stages
 
-- **Google MathWriting**: ~230,000 human-written samples + ~360,000 synthetic samples (total ~590,000 samples).
-- **MathWriting Excerpt**: ~3,000 samples for immediate local development and quick tests.
-- **CROHME**: Benchmark ink stroke expressions.
-- **Real Photo Set**: At least 200 real notebook line photos in `data/real/` (50 reserved strictly for blind testing, remainder for fine-tuning).
+Detailed implementation breakdowns for each stage are available in `docs/`:
+- [Stage 1: Configuration & Setup](docs/stage_1.md)
+- [Stage 2: Stroke Rendering & Tokenization](docs/stage_2.md)
+- [Stage 3: ResNet-18 & 2D Positional Embeddings](docs/stage_3.md)
+- [Stage 4: Overfit Sanity Milestone](docs/stage_4.md)
+- [Stage 5: Scaled Training & Checkpoints](docs/stage_5.md)
+- [Stage 6: Evaluation & Metrics](docs/stage_6.md)
+- [Stage 7: Beam Search Decoding](docs/stage_7.md)
+- [Stage 8: Page Deskew & Line Segmentation](docs/stage_8.md)
+- [Stage 9: CLI and Web Deployment](docs/stage_9.md)
+- [Stage 10: Notebook Domain Adaptation](docs/stage_10.md)
 
 ---
 
-## Documentation
-
-Each development stage is explained simply in the `docs/` folder:
-- [Stage 1: Setup & Configuration](docs/stage_1.md)
-- [Stage 2: Data Pipeline, Rendering & Tokenization](docs/stage_2.md)
-- [Stage 3: Model Architecture (ResNet + Transformer)](docs/stage_3.md)
-- [Stage 4: 100-Sample Overfit Milestone](docs/stage_4.md)
-- [Stage 5: Scaled Training Run & Checkpointing](docs/stage_5.md)
-- [Stage 6: Evaluation, Metrics & Error Analysis](docs/stage_6.md)
-- [Stage 7: Beam Search Inference](docs/stage_7.md)
-- [Stage 8: Page Preprocessing & Line Segmentation](docs/stage_8.md)
-- [Stage 9: CLI and Web Application](docs/stage_9.md)
-- [Stage 10: Scaling Up & Real-World Photo Fine-Tuning](docs/stage_10.md)
+## License
+MIT License. Developed for research and educational purposes at IIIT Kottayam.

@@ -61,7 +61,7 @@ training:
   checkpoint_dir: "checkpoints"
   save_every_epoch: true
   log_interval: 50            # Steps between console logging
-  num_workers: 2              # DataLoader worker processes
+  num_workers: 0              # Fast direct in-process loading on Windows
 
 # --- Inference Settings ---
 inference:

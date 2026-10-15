@@ -145,6 +145,15 @@ def math_collate_fn(batch: List[Dict[str, Any]], pad_id: int = 0) -> Dict[str, A
     }
 
 
+class MathCollator:
+    """Pickleable batch collation callable for multi-worker DataLoader."""
+    def __init__(self, pad_id: int = 0):
+        self.pad_id = pad_id
+
+    def __call__(self, batch: List[Dict[str, Any]]) -> Dict[str, Any]:
+        return math_collate_fn(batch, pad_id=self.pad_id)
+
+
 def create_dataloader(
     manifest_path: Union[str, Path],
     tokenizer: LatexTokenizer,
@@ -174,6 +183,6 @@ def create_dataloader(
         batch_size=batch_size,
         shuffle=do_shuffle,
         num_workers=num_workers,
-        collate_fn=lambda b: math_collate_fn(b, pad_id=pad_id),
+        collate_fn=MathCollator(pad_id=pad_id),
         pin_memory=torch.cuda.is_available(),
     )

@@ -1,0 +1,322 @@
+[
+  {
+    "id": "dalzell_benchmark",
+    "category": "Calculus & Benchmarks",
+    "name": "Dalzell Integral Benchmark",
+    "latex_display": "\\int_{0}^{1} \\frac{x^{4}(1-x)^{4}}{1+x^{2}} dx = \\frac{22}{7} - \\pi",
+    "ground_truth": "7\\left(\\pi+\\int_{0}^{1}\\frac{x^{4}(1-x)^{4}}{1+x^{2}}dx\\right)=22",
+    "image_path": "data/real/user_dalzell_crop.png"
+  },
+  {
+    "id": "035a670b49c3ce36",
+    "category": "Integrals & Calculus",
+    "name": "Li(x)=\\int_{0}^{x}\\frac{dt}{log(t)}",
+    "latex_display": "Li(x)=\\int_{0}^{x}\\frac{dt}{log(t)}",
+    "ground_truth": "Li(x)=\\int_{0}^{x}\\frac{dt}{log(t)}",
+    "image_path": "data/processed/test/035a670b49c3ce36.png"
+  },
+  {
+    "id": "0514870f7b7882a9",
+    "category": "Integrals & Calculus",
+    "name": "\\int_{0}^{1}\\frac{sin(1/x)}{x}dx",
+    "latex_display": "\\int_{0}^{1}\\frac{sin(1/x)}{x}dx",
+    "ground_truth": "\\int_{0}^{1}\\frac{sin(1/x)}{x}dx",
+    "image_path": "data/processed/test/0514870f7b7882a9.png"
+  },
+  {
+    "id": "070e7f7a58aed5db",
+    "category": "Integrals & Calculus",
+    "name": "\\int|f|d\\mu<+\\infty",
+    "latex_display": "\\int|f|d\\mu<+\\infty",
+    "ground_truth": "\\int|f|d\\mu<+\\infty",
+    "image_path": "data/processed/test/070e7f7a58aed5db.png"
+  },
+  {
+    "id": "07b600c18abe2d7a",
+    "category": "Integrals & Calculus",
+    "name": "\\int \\frac{e^{-2x^{2}}}{x}",
+    "latex_display": "\\int \\frac{e^{-2x^{2}}}{x}",
+    "ground_truth": "\\int \\frac{e^{-2x^{2}}}{x}",
+    "image_path": "data/processed/test/07b600c18abe2d7a.png"
+  },
+  {
+    "id": "07befd9b4c53a6a7",
+    "category": "Integrals & Calculus",
+    "name": "\\tau=\\frac{1}{c}\\int \\sqrt{g_{00}}dx^{0}",
+    "latex_display": "\\tau=\\frac{1}{c}\\int \\sqrt{g_{00}}dx^{0}",
+    "ground_truth": "\\tau=\\frac{1}{c}\\int \\sqrt{g_{00}}dx^{0}",
+    "image_path": "data/processed/test/07befd9b4c53a6a7.png"
+  },
+  {
+    "id": "0a19e88f5fc8e613",
+    "category": "Integrals & Calculus",
+    "name": "\\int_{0}^{t_{1}}E(t)dt",
+    "latex_display": "\\int_{0}^{t_{1}}E(t)dt",
+    "ground_truth": "\\int_{0}^{t_{1}}E(t)dt",
+    "image_path": "data/processed/test/0a19e88f5fc8e613.png"
+  },
+  {
+    "id": "02c9daf282f5a1e3",
+    "category": "Series & Summations",
+    "name": "\\sum_{x\\in \\{0,1\\}^{T}}|x\\rangle|f(x)\\rangle",
+    "latex_display": "\\sum_{x\\in \\{0,1\\}^{T}}|x\\rangle|f(x)\\rangle",
+    "ground_truth": "\\sum_{x\\in \\{0,1\\}^{T}}|x\\rangle|f(x)\\rangle",
+    "image_path": "data/processed/test/02c9daf282f5a1e3.png"
+  },
+  {
+    "id": "04303e80bb3b363f",
+    "category": "Series & Summations",
+    "name": "p_{j}(x)=j\\sum_{i=1}^{j}|x_{i}|",
+    "latex_display": "p_{j}(x)=j\\sum_{i=1}^{j}|x_{i}|",
+    "ground_truth": "p_{j}(x)=j\\sum_{i=1}^{j}|x_{i}|",
+    "image_path": "data/processed/test/04303e80bb3b363f.png"
+  },
+  {
+    "id": "04b22a5fda1d3489",
+    "category": "Series & Summations",
+    "name": "H_{n}(x)=\\sum_{k=0}^{n}a_{n,k}x^{k}",
+    "latex_display": "H_{n}(x)=\\sum_{k=0}^{n}a_{n,k}x^{k}",
+    "ground_truth": "H_{n}(x)=\\sum_{k=0}^{n}a_{n,k}x^{k}",
+    "image_path": "data/processed/test/04b22a5fda1d3489.png"
+  },
+  {
+    "id": "065f369d408a7044",
+    "category": "Series & Summations",
+    "name": "\\sum_{i=1}^{n}i=\\frac{n(n+1)}{2}",
+    "latex_display": "\\sum_{i=1}^{n}i=\\frac{n(n+1)}{2}",
+    "ground_truth": "\\sum_{i=1}^{n}i=\\frac{n(n+1)}{2}",
+    "image_path": "data/processed/test/065f369d408a7044.png"
+  },
+  {
+    "id": "06a9c0cef44ba669",
+    "category": "Series & Summations",
+    "name": "\\sum_{w\\in V}f_{i}(u,w)=0",
+    "latex_display": "\\sum_{w\\in V}f_{i}(u,w)=0",
+    "ground_truth": "\\sum_{w\\in V}f_{i}(u,w)=0",
+    "image_path": "data/processed/test/06a9c0cef44ba669.png"
+  },
+  {
+    "id": "06aa4979d554bd52",
+    "category": "Series & Summations",
+    "name": "E_{0}[\\sum_{t=0}^{\\infty}\\beta^{t}U(c_{t})]",
+    "latex_display": "E_{0}[\\sum_{t=0}^{\\infty}\\beta^{t}U(c_{t})]",
+    "ground_truth": "E_{0}[\\sum_{t=0}^{\\infty}\\beta^{t}U(c_{t})]",
+    "image_path": "data/processed/test/06aa4979d554bd52.png"
+  },
+  {
+    "id": "0082d4aa943b9f8c",
+    "category": "Fractions & Quotients",
+    "name": "|\\frac{d^{2}y}{dx^{2}}|\\approx \\frac{1}{R}",
+    "latex_display": "|\\frac{d^{2}y}{dx^{2}}|\\approx \\frac{1}{R}",
+    "ground_truth": "|\\frac{d^{2}y}{dx^{2}}|\\approx \\frac{1}{R}",
+    "image_path": "data/processed/test/0082d4aa943b9f8c.png"
+  },
+  {
+    "id": "011f1f41eb55b661",
+    "category": "Fractions & Quotients",
+    "name": "(\\frac{lnN}{N})\\rightarrow0",
+    "latex_display": "(\\frac{lnN}{N})\\rightarrow0",
+    "ground_truth": "(\\frac{lnN}{N})\\rightarrow0",
+    "image_path": "data/processed/test/011f1f41eb55b661.png"
+  },
+  {
+    "id": "01453872d3d2afe5",
+    "category": "Fractions & Quotients",
+    "name": "=J+\\epsilon_{0}\\frac{\\partial E}{\\partial t}",
+    "latex_display": "=J+\\epsilon_{0}\\frac{\\partial E}{\\partial t}",
+    "ground_truth": "=J+\\epsilon_{0}\\frac{\\partial E}{\\partial t}",
+    "image_path": "data/processed/test/01453872d3d2afe5.png"
+  },
+  {
+    "id": "016a39f81ff20b8d",
+    "category": "Fractions & Quotients",
+    "name": "\\frac{\\partial}{\\partial \\overline{z}}w(z)=0",
+    "latex_display": "\\frac{\\partial}{\\partial \\overline{z}}w(z)=0",
+    "ground_truth": "\\frac{\\partial}{\\partial \\overline{z}}w(z)=0",
+    "image_path": "data/processed/test/016a39f81ff20b8d.png"
+  },
+  {
+    "id": "01d2f97f90ed79e6",
+    "category": "Fractions & Quotients",
+    "name": "m\\equiv \\frac{RF_{,R}}{F}",
+    "latex_display": "m\\equiv \\frac{RF_{,R}}{F}",
+    "ground_truth": "m\\equiv \\frac{RF_{,R}}{F}",
+    "image_path": "data/processed/test/01d2f97f90ed79e6.png"
+  },
+  {
+    "id": "01d4d9a9dc145333",
+    "category": "Fractions & Quotients",
+    "name": "K_{m}=\\frac{1}{2}(k_{1}+k_{2})",
+    "latex_display": "K_{m}=\\frac{1}{2}(k_{1}+k_{2})",
+    "ground_truth": "K_{m}=\\frac{1}{2}(k_{1}+k_{2})",
+    "image_path": "data/processed/test/01d4d9a9dc145333.png"
+  },
+  {
+    "id": "00fee560e6c9af79",
+    "category": "Roots & Exponents",
+    "name": "\\sqrt{1-\\omega^{2}r_{0}^{2}}",
+    "latex_display": "\\sqrt{1-\\omega^{2}r_{0}^{2}}",
+    "ground_truth": "\\sqrt{1-\\omega^{2}r_{0}^{2}}",
+    "image_path": "data/processed/test/00fee560e6c9af79.png"
+  },
+  {
+    "id": "0272a794109d5d2d",
+    "category": "Roots & Exponents",
+    "name": "P_{F}=\\sqrt{P_{P}\\cdot P_{L}}",
+    "latex_display": "P_{F}=\\sqrt{P_{P}\\cdot P_{L}}",
+    "ground_truth": "P_{F}=\\sqrt{P_{P}\\cdot P_{L}}",
+    "image_path": "data/processed/test/0272a794109d5d2d.png"
+  },
+  {
+    "id": "0276c02c9b9222e9",
+    "category": "Roots & Exponents",
+    "name": "f^{-1}(y)=\\sqrt{y}",
+    "latex_display": "f^{-1}(y)=\\sqrt{y}",
+    "ground_truth": "f^{-1}(y)=\\sqrt{y}",
+    "image_path": "data/processed/test/0276c02c9b9222e9.png"
+  },
+  {
+    "id": "03d0d068dbfaa5c5",
+    "category": "Roots & Exponents",
+    "name": "Q(\\sqrt{d})/Q",
+    "latex_display": "Q(\\sqrt{d})/Q",
+    "ground_truth": "Q(\\sqrt{d})/Q",
+    "image_path": "data/processed/test/03d0d068dbfaa5c5.png"
+  },
+  {
+    "id": "03dc827f8b4f9386",
+    "category": "Roots & Exponents",
+    "name": "(b\\overline{g}+g\\overline{b})/\\sqrt{2}",
+    "latex_display": "(b\\overline{g}+g\\overline{b})/\\sqrt{2}",
+    "ground_truth": "(b\\overline{g}+g\\overline{b})/\\sqrt{2}",
+    "image_path": "data/processed/test/03dc827f8b4f9386.png"
+  },
+  {
+    "id": "044414882ca1e523",
+    "category": "Roots & Exponents",
+    "name": "O(n^{\\sqrt{k}})",
+    "latex_display": "O(n^{\\sqrt{k}})",
+    "ground_truth": "O(n^{\\sqrt{k}})",
+    "image_path": "data/processed/test/044414882ca1e523.png"
+  },
+  {
+    "id": "001083e26028da36",
+    "category": "Vectors & Greek Notation",
+    "name": "\\nabla I=(I_{x},I_{y})",
+    "latex_display": "\\nabla I=(I_{x},I_{y})",
+    "ground_truth": "\\nabla I=(I_{x},I_{y})",
+    "image_path": "data/processed/test/001083e26028da36.png"
+  },
+  {
+    "id": "004c9413be3ff1be",
+    "category": "Vectors & Greek Notation",
+    "name": "\\langle A\\rangle_{\\psi}=||A\\psi||^{2}",
+    "latex_display": "\\langle A\\rangle_{\\psi}=||A\\psi||^{2}",
+    "ground_truth": "\\langle A\\rangle_{\\psi}=||A\\psi||^{2}",
+    "image_path": "data/processed/test/004c9413be3ff1be.png"
+  },
+  {
+    "id": "0052b8e13b5f4a36",
+    "category": "Vectors & Greek Notation",
+    "name": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "latex_display": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "ground_truth": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "image_path": "data/processed/test/0052b8e13b5f4a36.png"
+  },
+  {
+    "id": "01a2f3186b7e33e1",
+    "category": "Vectors & Greek Notation",
+    "name": "(2n,n,\\lambda,1)",
+    "latex_display": "(2n,n,\\lambda,1)",
+    "ground_truth": "(2n,n,\\lambda,1)",
+    "image_path": "data/processed/test/01a2f3186b7e33e1.png"
+  },
+  {
+    "id": "0204f1101b3f4033",
+    "category": "Vectors & Greek Notation",
+    "name": "(x,y,\\theta,\\kappa,\\kappa^{\\prime})",
+    "latex_display": "(x,y,\\theta,\\kappa,\\kappa^{\\prime})",
+    "ground_truth": "(x,y,\\theta,\\kappa,\\kappa^{\\prime})",
+    "image_path": "data/processed/test/0204f1101b3f4033.png"
+  },
+  {
+    "id": "0017bb5822bcba69",
+    "category": "Algebra & Equations",
+    "name": "P=P(C(Z))",
+    "latex_display": "P=P(C(Z))",
+    "ground_truth": "P=P(C(Z))",
+    "image_path": "data/processed/test/0017bb5822bcba69.png"
+  },
+  {
+    "id": "002ae6d5dd4173e4",
+    "category": "Algebra & Equations",
+    "name": "x_{1}-x_{2}+x_{0}=0",
+    "latex_display": "x_{1}-x_{2}+x_{0}=0",
+    "ground_truth": "x_{1}-x_{2}+x_{0}=0",
+    "image_path": "data/processed/test/002ae6d5dd4173e4.png"
+  },
+  {
+    "id": "0052b8e13b5f4a36",
+    "category": "Algebra & Equations",
+    "name": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "latex_display": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "ground_truth": "w(\\neg \\theta)=F_{\\neg}(w(\\theta))",
+    "image_path": "data/processed/test/0052b8e13b5f4a36.png"
+  },
+  {
+    "id": "006badbfc63bbd21",
+    "category": "Algebra & Equations",
+    "name": "p=(p_{x},p_{y},p_{z})",
+    "latex_display": "p=(p_{x},p_{y},p_{z})",
+    "ground_truth": "p=(p_{x},p_{y},p_{z})",
+    "image_path": "data/processed/test/006badbfc63bbd21.png"
+  },
+  {
+    "id": "0083f66ddd05c46c",
+    "category": "Algebra & Equations",
+    "name": "m_{i,j}=x^{i}\\cdot x^{j}",
+    "latex_display": "m_{i,j}=x^{i}\\cdot x^{j}",
+    "ground_truth": "m_{i,j}=x^{i}\\cdot x^{j}",
+    "image_path": "data/processed/test/0083f66ddd05c46c.png"
+  },
+  {
+    "id": "00ad7566b9f1d872",
+    "category": "Algebra & Equations",
+    "name": "\\dot{x}(t)=f(x(t))",
+    "latex_display": "\\dot{x}(t)=f(x(t))",
+    "ground_truth": "\\dot{x}(t)=f(x(t))",
+    "image_path": "data/processed/test/00ad7566b9f1d872.png"
+  },
+  {
+    "id": "00eaf4f2d3d20bb1",
+    "category": "Algebra & Equations",
+    "name": "B=ln(-b)",
+    "latex_display": "B=ln(-b)",
+    "ground_truth": "B=ln(-b)",
+    "image_path": "data/processed/test/00eaf4f2d3d20bb1.png"
+  },
+  {
+    "id": "0121d7fdad59c8ab",
+    "category": "Algebra & Equations",
+    "name": "\\Leftrightarrow|PA|^{2}=9|PB|^{2}",
+    "latex_display": "\\Leftrightarrow|PA|^{2}=9|PB|^{2}",
+    "ground_truth": "\\Leftrightarrow|PA|^{2}=9|PB|^{2}",
+    "image_path": "data/processed/test/0121d7fdad59c8ab.png"
+  },
+  {
+    "id": "01292cf19c2c9c7c",
+    "category": "Algebra & Equations",
+    "name": "u=1+l^{2}+m^{2}",
+    "latex_display": "u=1+l^{2}+m^{2}",
+    "ground_truth": "u=1+l^{2}+m^{2}",
+    "image_path": "data/processed/test/01292cf19c2c9c7c.png"
+  },
+  {
+    "id": "014f7412fa06f5c0",
+    "category": "Algebra & Equations",
+    "name": "||L_{x}||_{(l^{p})^{*}}=||x||_{q}",
+    "latex_display": "||L_{x}||_{(l^{p})^{*}}=||x||_{q}",
+    "ground_truth": "||L_{x}||_{(l^{p})^{*}}=||x||_{q}",
+    "image_path": "data/processed/test/014f7412fa06f5c0.png"
+  }
+]

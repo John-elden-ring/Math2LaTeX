@@ -55,7 +55,7 @@ def clean_and_binarize(
     block_size: int = 25,
     c: int = 10,
 ) -> Tuple[np.ndarray, np.ndarray]:
-    """Clean shadows and binarize page photo using OpenCV adaptive thresholding.
+    """Clean shadows, denoise sensor grain, whiten paper, and binarize page photo.
     
     Args:
         img: Input BGR or Grayscale image.
@@ -64,14 +64,12 @@ def clean_and_binarize(
         
     Returns:
         binary_inv: Inverted binary image where ink is 255 and paper is 0 (for projection).
-        cleaned_gray: Normalized grayscale image where shadows have been flattened.
+        cleaned_gray: Normalized, denoised, paper-whitened grayscale image.
     """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img.copy()
 
-    # Mild Gaussian blur to suppress camera sensor grain
+    # 1. Binarize from blurred gray to preserve full character heights, subscripts, and exponents
     blurred = cv2.GaussianBlur(gray, (3, 3), 0)
-
-    # Adaptive thresholding: handles lighting gradients across paper smoothly
     binary_inv = cv2.adaptiveThreshold(
         blurred,
         255,
@@ -81,10 +79,11 @@ def clean_and_binarize(
         c,
     )
 
-    # Estimate background illumination using morphological opening
+    # 2. Background lighting flattening and paper whitening
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (40, 40))
     background = cv2.morphologyEx(gray, cv2.MORPH_DILATE, kernel)
     cleaned_gray = cv2.divide(gray, background, scale=255)
+    cleaned_gray = np.where(cleaned_gray > 248, 255, cleaned_gray).astype(np.uint8)
 
     return binary_inv, cleaned_gray
 
